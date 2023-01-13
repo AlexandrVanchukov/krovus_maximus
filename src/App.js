@@ -1,24 +1,48 @@
-import React from 'react';
+import React, {useState,useEffect} from "react";
 import ReactDOM from 'react-dom/client';
-
+import Sign_up_form from "./Components/Sign_in_form";
+import Rooms_list from "./Components/Rooms_list";
+import Button from "./Components/UI/Button/Button";
+import Sign_in from "./Components/Pages/Sign_up";
+import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
+import Room_list from "./Components/Pages/Room_list";
+import Sign_up from "./Components/Pages/Sign_up";
+import Sign_up_reg from "./Components/Pages/Sign_up_reg";
 
 function App() {
-  
-  update_game();
-  function update_game(){
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST","https://sql.lavro.ru/call.php");
-    let fd = new FormData();
-    fd.append("pname","update_game");
-    fd.append("db","284192");
-    fd.append("p1","1803212990");
-    fd.append("p2","22");
+  const [tk,setTk] = useState('');
+  const [rooms,SetRoom] = useState([]);
+  function createTk(newTk){
+    setTk(newTk);
   }
 
   return (
-    <div className="App">
-
-    </div>
+      <Router>
+        <div className="App">
+          <ul className="App-header">
+            <li>
+              <Link to="/sign_in">Sign in</Link>
+            </li>
+            <li>
+              <Link to="/sign_up">Sign up</Link>
+            </li>
+            <li>
+              <Link to="/List_room">Room list</Link>
+            </li>
+          </ul>
+          <Routes>
+            <Route exact path='/sign_in' element={< Sign_up create={createTk}/>}></Route>
+            <Route exact path='/sign_up' element={< Sign_up_reg create={createTk}/>}></Route>
+            <Route exact path='/List_room' element={< Room_list tk={tk}/>}></Route>
+          </Routes>
+          {/*<h1>Room list</h1>
+          <Rooms_list rooms={rooms} tk={tk}/>*/}
+        </div>
+      </Router>
+    /*<div className="App">
+        <Sign_up_form sign_in_f={sign_in} form={form} setForm={setForm}/>
+        <Rooms_list roomList_id={roomList_id}/>
+    </div>*/
   );
 }
 
