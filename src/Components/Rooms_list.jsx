@@ -6,7 +6,6 @@ import room from "./Pages/Room";
 
 
 const RoomsList = (props) => {
-    console.log("ssssssss")
     return (
             <table>
                 <thead>
@@ -19,7 +18,7 @@ const RoomsList = (props) => {
                 </thead>
                 <tbody>
                 {props.rooms.map((r) =>
-                    <Id_game_item room={r} key={r.id_game} tk={props.tk}/>
+                    <Id_game_item room={r} key={r.id_game} tk={props.tk} setId={props.setId} setIdPl={props.setIdPl}/>
                 )}
                 </tbody>
             </table>

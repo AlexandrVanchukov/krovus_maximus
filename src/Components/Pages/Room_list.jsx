@@ -6,6 +6,7 @@ import Sign_up_form from "../Sign_in_form";
 import Create_Room from "../Create_Room";
 
 const RoomList = (props) => {
+
     if(props.tk != ''){
         update_menu();
     }
@@ -33,12 +34,13 @@ const RoomList = (props) => {
                 alert("Произошла ошибка при обращении к базе данных");
             }
             else{
-                if(resp.RESULTS[0].ERROR){
-                    if(resp.RESULTS[0].ERROR[0]=="Authorization Error"){
-                        alert(resp.RESULTS[0].rus_error[0]);
+                if(resp.RESULTS[0][0].error){
+                    if(resp.RESULTS[0][0].error=="Authorization Error"){
+                        alert(resp.RESULTS[0][0].rus_error);
                     }
-                    alert(resp.RESULTS[0].rus_error[0]);
+                    alert(resp.RESULTS[0][0].rus_error);
                 }
+
             }
         }
         else {
@@ -67,11 +69,11 @@ const RoomList = (props) => {
             alert("Произошла ошибка при обращении к базе данных");
           }
           else{
-            if(resp.RESULTS[0].ERROR){
-              if(resp.RESULTS[0].ERROR[0]=="Authorization Error"){
-                alert(resp.RESULTS[0].rus_error[0]);
+            if(resp.RESULTS[0][0].error){
+              if(resp.RESULTS[0][0].error=="Authorization Error"){
+                alert(resp.RESULTS[0][0].rus_error);
               }
-              alert(resp.RESULTS[0].rus_error[0]);
+              alert(resp.RESULTS[0][0].rus_error);
             }
             SetRoom(resp.RESULTS[1]);
           }
@@ -86,7 +88,7 @@ const RoomList = (props) => {
     return (
         <div>
             <h1>Room list</h1>
-            <Rooms_list rooms={rooms} tk={props.tk}/>
+            <Rooms_list rooms={rooms} tk={props.tk} setId={props.setId} setIdPl={props.setIdPl}/>
             <Create_Room create_room_f={create} time={time} setTime={setTime} text={"Создать игру"}/>
         </div>
     );
