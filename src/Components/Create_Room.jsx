@@ -4,7 +4,8 @@ import Button from "./UI/Button/Button";
 
 const CreateRoom = ({create_room_f,time,setTime,text}) => {
     return (
-        <form style={{width: 300},{display: "inline-block"}}>
+
+        <form style={{width: 300,display: "inline-block"}}>
             <Input
                 value = {time}
                 onChange={e => setTime(e.target.value)}
