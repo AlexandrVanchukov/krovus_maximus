@@ -43,9 +43,7 @@ function App() {
             <li>
               <Link to="/room">Room</Link>
             </li>
-            <li>
-              <Link to="/game">Game</Link>
-            </li>
+
           </ul>
           <Routes>
             <Route exact path='/sign_in' element={< Sign_up create={createTk}/>}></Route>

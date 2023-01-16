@@ -22,6 +22,7 @@ const Room = (props) => {
     const [lastCombat,SetLastCombat] = useState([]);
     const [points,SetPoints] = useState([]);
     const [lastRound,SetLastRound] = useState([]);
+    const [winner,SetWinner] = useState('');
 
     if(props.tk != ''){
         update_game();
@@ -77,7 +78,6 @@ const Room = (props) => {
         xhr.send(fd);
     }
 
-
     function update_game_temp(e){
         if (e.target.status === 200){
             let resp = JSON.parse(e.target.response);
@@ -103,33 +103,65 @@ const Room = (props) => {
                     SetTimer(resp.RESULTS[4][0].Time_left);
                     SetTurn_login(resp.RESULTS[4][0].login_user);
                 }
+                showGame(resp.RESULTS[4][0]);
+                showWinner(resp.RESULTS[9][0]);
                 setCards_won(resp.RESULTS[5]);
                 SetLastCombat(resp.RESULTS[6]);
                 SetPoints(resp.RESULTS[7]);
                 SetLastRound(resp.RESULTS[8]);
-                console.log(lastCombat)
+                if(resp.RESULTS[9][0]){
+                    SetWinner(resp.RESULTS[9][0].Winner);
+                }
             }
-
         }
         else {
             alert("Ошибка сети. Проверьте интернет соединение") ;
         }
     }
 
+    function showGame(time){
+        if(time){
+            document.getElementById('idd').style.display = "block";
+            document.getElementById('timer').style.display = "inline-block";
+        }
+        else
+        {
+            document.getElementById('idd').style.display = 'none';
+            document.getElementById('timer').style.display = "none";
+        }
+    }
+    
+    function showWinner(win) {
+        if(win){
+            document.getElementById('winner').style.display = "block";
+        }
+        else
+        {
+            document.getElementById('winner').style.display = 'none';
+        }
+    }
+
     return (
         <div>
             <h1>Room {props.idg} {props.idp}</h1>
-            <div>
+            <div id={'winner'}>Winner: {winner}</div>
+            <div style={{}}>
                 <Players_list players={players}/>
-                <Timer timer={timer} lg={turn_login} strongestSchool={strongestSchool}/>
+                <div id={'timer'}>
+                    <Timer timer={timer} lg={turn_login} strongestSchool={strongestSchool}/>
+                </div>
+
             </div>
-            <Cards_list cards={cards_on_table}/>
-            <div style={{height: 100}}></div>
-            <Card_on_hand_list cards={cards_on_hand} idp={props.idp} tk={props.tk}/>
-            <Cards_won_list cards={cards_won}/>
-            <Last_combat cards={lastCombat} />
-            <Points points={points}/>
-            <Last_round rounds={lastRound}/>
+            <div id={'idd'}>
+                <Cards_list cards={cards_on_table}/>
+                <div style={{height: 100}}></div>
+                <Card_on_hand_list cards={cards_on_hand} idp={props.idp} tk={props.tk}/>
+                <Cards_won_list cards={cards_won}/>
+                <Last_combat cards={lastCombat} />
+                <Points points={points}/>
+                <Last_round rounds={lastRound}/>
+            </div>
+
             <Button onClick={start_game}>Start</Button>
         </div>
     );

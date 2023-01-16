@@ -4,13 +4,16 @@ import Button from "../UI/Button/Button";
 import Rooms_list from "../Rooms_list";
 import Sign_up_form from "../Sign_in_form";
 import Create_Room from "../Create_Room";
+import Online_users from "../menu_item/Online_users";
 
 const RoomList = (props) => {
+
 
     if(props.tk != ''){
         update_menu();
     }
     const [rooms,SetRoom] = useState([]);
+    const [users,SetUsers] = useState([]);
     const [time,setTime] = useState('');
 
     function create(){
@@ -76,6 +79,7 @@ const RoomList = (props) => {
               alert(resp.RESULTS[0][0].rus_error);
             }
             SetRoom(resp.RESULTS[1]);
+            SetUsers(resp.RESULTS[2]);
           }
 
         }
@@ -87,9 +91,14 @@ const RoomList = (props) => {
 
     return (
         <div>
-            <h1>Room list</h1>
+            <div>
+                <h1>Room list</h1>
+                <Create_Room create_room_f={create} time={time} setTime={setTime} text={"Создать игру"}/>
+            </div>
+
             <Rooms_list rooms={rooms} tk={props.tk} setId={props.setId} setIdPl={props.setIdPl}/>
-            <Create_Room create_room_f={create} time={time} setTime={setTime} text={"Создать игру"}/>
+            <Online_users users={users}/>
+
         </div>
     );
 };
