@@ -8,6 +8,8 @@ import Cards_list from "../Game_components/Cards_list";
 import Cards_won_item from "../Game_components/Cards_won_item";
 import Cards_won_list from "../Game_components/Cards_won_list";
 import Last_combat from "../Game_components/Last_combat";
+import Points from "../Game_components/Points";
+import Last_round from "../Game_components/Last_round";
 
 const Room = (props) => {
     const [players,SetPlayers] = useState([]);
@@ -18,6 +20,8 @@ const Room = (props) => {
     const [turn_login,SetTurn_login] = useState('');
     const [strongestSchool,SetStrongestSchool] = useState('');
     const [lastCombat,SetLastCombat] = useState([]);
+    const [points,SetPoints] = useState([]);
+    const [lastRound,SetLastRound] = useState([]);
 
     if(props.tk != ''){
         update_game();
@@ -91,12 +95,18 @@ const Room = (props) => {
                 }
                 SetPlayers(resp.RESULTS[0]);
                 setCards_on_hand(resp.RESULTS[1]);
-                SetStrongestSchool(resp.RESULTS[2][0].strongest_school);
+                if(resp.RESULTS[2][0]){
+                    SetStrongestSchool(resp.RESULTS[2][0].strongest_school);
+                }
                 setCards_on_table(resp.RESULTS[3]);
-                SetTimer(resp.RESULTS[4][0].Time_left);
-                SetTurn_login(resp.RESULTS[4][0].login_user);
+                if(resp.RESULTS[4][0]){
+                    SetTimer(resp.RESULTS[4][0].Time_left);
+                    SetTurn_login(resp.RESULTS[4][0].login_user);
+                }
                 setCards_won(resp.RESULTS[5]);
                 SetLastCombat(resp.RESULTS[6]);
+                SetPoints(resp.RESULTS[7]);
+                SetLastRound(resp.RESULTS[8]);
                 console.log(lastCombat)
             }
 
@@ -109,12 +119,17 @@ const Room = (props) => {
     return (
         <div>
             <h1>Room {props.idg} {props.idp}</h1>
-            <Players_list players={players}/>
-            <Timer timer={timer} lg={turn_login} strongestSchool={strongestSchool}/>
-            <Last_combat cards={lastCombat} />
+            <div>
+                <Players_list players={players}/>
+                <Timer timer={timer} lg={turn_login} strongestSchool={strongestSchool}/>
+            </div>
             <Cards_list cards={cards_on_table}/>
+            <div style={{height: 100}}></div>
             <Card_on_hand_list cards={cards_on_hand} idp={props.idp} tk={props.tk}/>
             <Cards_won_list cards={cards_won}/>
+            <Last_combat cards={lastCombat} />
+            <Points points={points}/>
+            <Last_round rounds={lastRound}/>
             <Button onClick={start_game}>Start</Button>
         </div>
     );

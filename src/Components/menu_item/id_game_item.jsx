@@ -31,7 +31,7 @@ const Id_game_item = (props) => {
             else{
                 if(resp.RESULTS[0].error){
                     if(resp.RESULTS[0].rus_error[0] === "Вы уже в этой игре"){
-                        alert(resp.RESULTS[0].rus_error[0]);
+                        alert("Вы успешно присоеденились к игре! Перейдите на страницу Room");
                         props.setIdPl(resp.RESULTS[1].id_player[0]);
                     }
                     else {

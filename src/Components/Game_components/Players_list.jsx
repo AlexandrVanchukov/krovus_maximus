@@ -4,7 +4,7 @@ import Player_item from "./Player_item";
 
 const PlayersList = (props) => {
     return (
-        <table >
+        <table style={{display: "inline-block"}}>
             <thead>
             <tr>
                 <td>seat</td>
