@@ -51,8 +51,7 @@ const SignUpReg = ({create}) => {
 
     return (
         <div>
-
-            <h1>Sign up</h1>
+            <h1 style={{margin: 20}}>Sign up</h1>
             <Sign_up_form sign_in_f={sign_in} form={form} setForm={setForm} text={"Зарегестрироваться"}/>
         </div>
     );

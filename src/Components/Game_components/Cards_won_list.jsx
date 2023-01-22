@@ -4,7 +4,7 @@ import Cards_won_item from "./Cards_won_item";
 
 const CardsWonList = (props) => {
     return (
-        <div>
+        <div style={{margin: 20}}>
             <span>Won cards</span>
             {props.cards.map((c) =>
                 <Cards_won_item card={c} key={c.id_card} idc={c.id_card} num={c.number} school={c.school} points={c.points}/>

@@ -10,6 +10,7 @@ import Sign_up from "./Components/Pages/Sign_up";
 import Sign_up_reg from "./Components/Pages/Sign_up_reg";
 import Room from "./Components/Pages/Room";
 import Game from "./Components/Pages/Game";
+import classes from "./App.module.css";
 
 function App() {
   const [tk,setTk] = useState('');
@@ -28,8 +29,8 @@ function App() {
 
 
   return (
-      <Router>
-        <div className="App">
+      <Router >
+        <div className="classes">
           <ul className="App-header">
             <li>
               <Link to="/sign_in">Sign in</Link>

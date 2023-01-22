@@ -4,7 +4,7 @@ import Last_combat_item from "./Last_combat_item";
 
 const LastCombat = (props) => {
     return (
-        <div>
+        <div style={{margin: 20}}>
             <div>Last Combat</div>
             {props.cards.map((c) =>
                 <Last_combat_item card={c} key={c.id_card} num={c.number} school={c.school} points={c.points} seat={c.seat} lg={c.login_user}/>

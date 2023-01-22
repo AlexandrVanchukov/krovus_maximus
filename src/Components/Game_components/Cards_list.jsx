@@ -4,8 +4,8 @@ import Cards_item from "./Cards_item";
 
 const CardsList = (props) => {
     return (
-        <div style={{margin: "auto", width: 300}}>
-            <div>Table</div>
+        <div style={{height:180}}>
+            {/*<div style={{margin: "auto", textAlign: "center"}}>Table</div>*/}
             {props.cards.map((c) =>
                 <Cards_item card={c} key={c.id_card} idc={c.id_card} num={c.number} school={c.school} points={c.points}/>
             )}

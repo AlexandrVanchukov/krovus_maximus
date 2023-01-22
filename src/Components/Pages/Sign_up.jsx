@@ -50,7 +50,7 @@ const SignUp = ({create}) => {
 
     return (
         <div>
-            <h1>Sign in</h1>
+            <h1 style={{margin: 20}}>Sign in</h1>
             <Sign_up_form sign_in_f={sign_in} form={form} setForm={setForm} text={"Войти"}/>
         </div>
     );

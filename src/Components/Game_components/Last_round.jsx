@@ -5,8 +5,8 @@ import Last_round_item from "./Last_round_item";
 
 const LastRound = (props) => {
     return (
-        <div style={{margin: 10}}>
-            <div>Карты в послежнем раунде</div>
+        <div style={{margin: 20}}>
+            <div>Last round cards</div>
             {props.rounds.map((r) =>
                 <Last_round_item round={r} key={r.id_card} lg={r.login_user} num={r.number} school={r.school} points={r.points}/>
             )}

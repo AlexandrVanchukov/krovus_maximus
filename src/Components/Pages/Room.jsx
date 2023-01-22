@@ -122,12 +122,14 @@ const Room = (props) => {
     function showGame(time){
         if(time){
             document.getElementById('idd').style.display = "block";
-            document.getElementById('timer').style.display = "inline-block";
+            document.getElementById('timer').style.display = "block";
+            document.getElementById('startButton').style.display = "none";
         }
         else
         {
             document.getElementById('idd').style.display = 'none';
             document.getElementById('timer').style.display = "none";
+            document.getElementById('startButton').style.display = "block";
         }
     }
     
@@ -143,14 +145,14 @@ const Room = (props) => {
 
     return (
         <div>
-            <h1>Room {props.idg} {props.idp}</h1>
-            <div id={'winner'}>Winner: {winner}</div>
-            <div style={{}}>
+            <h1 style={{margin: 20}}>Room {props.idg}</h1>
+            <div style={{margin: "0px 20px",position: "absolute"}}>
+                <div id={'winner'}>Winner: {winner}</div>
                 <Players_list players={players}/>
-                <div id={'timer'}>
-                    <Timer timer={timer} lg={turn_login} strongestSchool={strongestSchool}/>
-                </div>
-
+                <Button id={'startButton'} onClick={start_game}>Start</Button>
+            </div>
+            <div id={'timer'} style={{display: "block"}}>
+                <Timer timer={timer} lg={turn_login} strongestSchool={strongestSchool}/>
             </div>
             <div id={'idd'}>
                 <Cards_list cards={cards_on_table}/>
@@ -159,10 +161,10 @@ const Room = (props) => {
                 <Cards_won_list cards={cards_won}/>
                 <Last_combat cards={lastCombat} />
                 <Points points={points}/>
-                <Last_round rounds={lastRound}/>
+                {/*<Last_round rounds={lastRound}/>*/}
             </div>
 
-            <Button onClick={start_game}>Start</Button>
+
         </div>
     );
 };

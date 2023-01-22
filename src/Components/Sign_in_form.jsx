@@ -5,7 +5,7 @@ import {useState} from "react";
 
 const SignUpForm = ({sign_in_f,form,setForm,text}) =>{
     return (
-        <form>
+        <form style={{width: 300, margin: 20}}>
             <Input
                 value = {form.login}
                 onChange={e => setForm({...form,login:e.target.value})}

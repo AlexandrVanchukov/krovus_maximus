@@ -4,8 +4,8 @@ import Points_item from "./Points_item";
 
 const Points = (props) => {
     return (
-        <div style={{margin: 10}}>
-            Результаты последнего раунда
+        <div style={{margin: 20}}>
+            <span>Last round points</span>
             {props.points.map((p) =>
                 <Points_item point={p} key={p.login_user} lg={p.login_user} p={p.points}/>
             )}

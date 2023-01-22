@@ -90,7 +90,7 @@ const RoomList = (props) => {
 
 
     return (
-        <div>
+        <div style={{margin: 20}}>
             <div>
                 <h1>Room list</h1>
                 <Create_Room create_room_f={create} time={time} setTime={setTime} text={"Создать игру"}/>
