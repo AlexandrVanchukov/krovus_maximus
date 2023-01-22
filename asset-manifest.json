@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/krovus_maximus/static/css/main.30879850.css",
+    "main.js": "/krovus_maximus/static/js/main.957f362b.js",
+    "index.html": "/krovus_maximus/index.html",
+    "main.30879850.css.map": "/krovus_maximus/static/css/main.30879850.css.map",
+    "main.957f362b.js.map": "/krovus_maximus/static/js/main.957f362b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.30879850.css",
+    "static/js/main.957f362b.js"
+  ]
+}
