@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/krovus_maximus/static/css/main.7b668778.css",
-    "main.js": "/krovus_maximus/static/js/main.1da5fe6e.js",
+    "main.js": "/krovus_maximus/static/js/main.02bd0d71.js",
     "index.html": "/krovus_maximus/index.html",
     "main.7b668778.css.map": "/krovus_maximus/static/css/main.7b668778.css.map",
-    "main.1da5fe6e.js.map": "/krovus_maximus/static/js/main.1da5fe6e.js.map"
+    "main.02bd0d71.js.map": "/krovus_maximus/static/js/main.02bd0d71.js.map"
   },
   "entrypoints": [
     "static/css/main.7b668778.css",
-    "static/js/main.1da5fe6e.js"
+    "static/js/main.02bd0d71.js"
   ]
 }
