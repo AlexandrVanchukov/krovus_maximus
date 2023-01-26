@@ -3,12 +3,9 @@ import React from 'react';
 const LastCombatItem = (props) => {
     return (
 
-        <div style={{border: "solid", display: "inline-block", padding: 10}}>
-            <div>{props.lg}</div>
-
-            <div style={{backgroundColor: "aliceblue"}}>{props.num}</div>
-            <div style={{backgroundColor: "aliceblue"}}>{props.school}</div>
-            <div style={{backgroundColor: "yellow"}}>{props.points}</div>
+        <div style={{display: "inline-block"}}>
+            <div style={{textAlign:"center"}}>{props.lg}</div>
+            <img src={process.env.PUBLIC_URL + "/img/" + props.idc + ".jpg"} style={{width:"150px"}}/>
         </div>
     );
 };

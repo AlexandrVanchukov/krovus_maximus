@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from "../UI/Button/Button";
 
+
 const CardOnHandItem = (props) => {
     function move(){
         let xhr = new XMLHttpRequest();
@@ -40,10 +41,11 @@ const CardOnHandItem = (props) => {
         }
     }
     return (
-        <Button style={{width: 100,height: 150,border: "solid",display: "inline-block", color: "black"}} onClick={() => move()}>
-            <div style={{backgroundColor: "aliceblue"}}>{props.num}</div>
-            <div style={{backgroundColor: "aliceblue"}}>{props.school}</div>
-            <div style={{backgroundColor: "yellow"}}>{props.points}</div>
+        <Button style={{width: "10%",borderColor: "white",display: "inline-block", color: "black", padding: 0}} onClick={() => move()}>
+            {/*<div style={{backgroundColor: "aliceblue"}}>{props.num}</div>*/}
+            {/*<div style={{backgroundColor: "aliceblue"}}>{props.school}</div>*/}
+            {/*<div style={{backgroundColor: "yellow"}}>{props.points}</div>*/}
+            <img src={process.env.PUBLIC_URL + "/img/" + props.idc + ".jpg"} style={{width:"100%"}}/>
         </Button>
     );
 };

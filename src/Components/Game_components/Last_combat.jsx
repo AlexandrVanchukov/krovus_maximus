@@ -7,7 +7,7 @@ const LastCombat = (props) => {
         <div style={{margin: 20}}>
             <div>Last Combat</div>
             {props.cards.map((c) =>
-                <Last_combat_item card={c} key={c.id_card} num={c.number} school={c.school} points={c.points} seat={c.seat} lg={c.login_user}/>
+                <Last_combat_item card={c} key={c.id_card} idc={c.id_card} num={c.number} school={c.school} points={c.points} seat={c.seat} lg={c.login_user}/>
             )}
         </div>
     );

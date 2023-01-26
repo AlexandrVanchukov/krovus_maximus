@@ -2,8 +2,8 @@ import React from 'react';
 
 const CardsWonItem = (props) => {
     return (
-        <div style={{border: "solid", width: 100}}>
-            {props.num} {props.school} {props.points}
+        <div style={{ width: "40px",display:"inline-block"}}>
+            <img src={process.env.PUBLIC_URL + "/img/" + props.idc + ".jpg"} style={{width:"150px"}}/>
         </div>
     );
 };
