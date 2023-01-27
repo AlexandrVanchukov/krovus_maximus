@@ -7,7 +7,7 @@ import room from "./Pages/Room";
 
 const RoomsList = (props) => {
     return (
-            <table style={{display: "inline-block"}}>
+            <table style={{display: "inline-block", textAlign:"center"}}>
                 <thead>
                 <tr>
                     <td>Game_id</td>

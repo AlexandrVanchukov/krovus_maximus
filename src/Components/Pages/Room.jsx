@@ -122,12 +122,15 @@ const Room = (props) => {
     function showGame(time){
         if(time){
             document.getElementById('idd').style.display = "block";
+            document.getElementById('space').style.display = "none";
+            document.getElementById('info').style.display = "block";
             document.getElementById('timer').style.display = "block";
             document.getElementById('startButton').style.display = "none";
         }
         else
         {
             document.getElementById('idd').style.display = 'none';
+            document.getElementById('info').style.display = "none";
             document.getElementById('timer').style.display = "none";
             document.getElementById('startButton').style.display = "block";
         }
@@ -136,6 +139,8 @@ const Room = (props) => {
     function showWinner(win) {
         if(win){
             document.getElementById('winner').style.display = "block";
+            document.getElementById('space').style.display = "block";
+            document.getElementById('info').style.display = "block";
         }
         else
         {
@@ -159,9 +164,12 @@ const Room = (props) => {
                 <div style={{height: 100}}></div>
                 <Card_on_hand_list cards={cards_on_hand} idp={props.idp} tk={props.tk}/>
                 <Cards_won_list cards={cards_won}/>
+                {/*<Last_round rounds={lastRound}/>*/}
+            </div>
+            <div id={"info"}>
+                <div id={"space"} style={{height:160}}></div>
                 <Last_combat cards={lastCombat} />
                 <Points points={points}/>
-                {/*<Last_round rounds={lastRound}/>*/}
             </div>
 
 

@@ -30,8 +30,12 @@ function App() {
 
   return (
       <Router >
-        <div className="classes">
-          <ul className="App-header">
+        <div className={classes.header}>
+          <div className={classes.headerItem}><Link to="/sign_in" className={classes.headerLink}>Sign in</Link></div>
+          <div className={classes.headerItem}><Link to="/sign_up" className={classes.headerLink}>Sign up</Link></div>
+          <div className={classes.headerItem}><Link to="/List_room" className={classes.headerLink}>Room list</Link></div>
+          <div className={classes.headerItem}><Link to="/room" className={classes.headerLink}>Room</Link></div>
+         {/* <ul className="App-header">
             <li>
               <Link to="/sign_in">Sign in</Link>
             </li>
@@ -44,18 +48,18 @@ function App() {
             <li>
               <Link to="/room">Room</Link>
             </li>
-
-          </ul>
-          <Routes>
-            <Route exact path='/sign_in' element={< Sign_up create={createTk}/>}></Route>
-            <Route exact path='/sign_up' element={< Sign_up_reg create={createTk}/>}></Route>
-            <Route exact path='/List_room' element={< Room_list tk={tk} setId={setIdGame} setIdPl={setIdPlayer}/>}></Route>
-            <Route exact path='/room' element={<Room tk={tk} idg={idg} idp={idp}/>}></Route>
-            <Route exact path='/game' element={<Game/>}></Route>
-          </Routes>
+          </ul>*/}
           {/*<h1>Room list</h1>
           <Rooms_list rooms={rooms} tk={tk}/>*/}
+
         </div>
+        <Routes>
+          <Route exact path='/sign_in' element={< Sign_up create={createTk}/>}></Route>
+          <Route exact path='/sign_up' element={< Sign_up_reg create={createTk}/>}></Route>
+          <Route exact path='/List_room' element={< Room_list tk={tk} setId={setIdGame} setIdPl={setIdPlayer}/>}></Route>
+          <Route exact path='/room' element={<Room tk={tk} idg={idg} idp={idp}/>}></Route>
+          <Route exact path='/game' element={<Game/>}></Route>
+        </Routes>
       </Router>
     /*<div className="App">
         <Sign_up_form sign_in_f={sign_in} form={form} setForm={setForm}/>
